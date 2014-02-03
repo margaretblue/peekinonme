@@ -1,0 +1,6 @@
+caregiver:
+  name: Bob Jones
+  email: caregiver@caregiver.com
+  password: password
+  phone: 555-555-5555
+  role: caregiver

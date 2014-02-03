@@ -33,6 +33,11 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+<<<<<<< HEAD
+=======
+    bootstrap-sass (3.1.0.1)
+      sass (~> 3.2)
+>>>>>>> fc4e86b05f62f0299582ece015fd89cc54c6a8ab
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -169,6 +174,10 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+<<<<<<< HEAD
+=======
+  bootstrap-sass (~> 3.1.0)
+>>>>>>> fc4e86b05f62f0299582ece015fd89cc54c6a8ab
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
