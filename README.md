@@ -5,3 +5,5 @@ A Rails app to constantly poll shut-ins, independently-living seniors and other 
 <h2>Technologies Used: </h2>
 
 <h2>Team Members:</h2>
+
+
