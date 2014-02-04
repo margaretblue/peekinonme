@@ -8,6 +8,7 @@ gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'devise'
 
 group :doc do
   gem 'sdoc', require: false
@@ -26,7 +27,6 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'better_errors'
   gem 'binding_of_caller'
-
 end
 
 # Use ActiveModel has_secure_password
