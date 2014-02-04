@@ -1,0 +1,31 @@
+<h1>Listing caregivers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caregivers.each do |caregiver| %>
+      <tr>
+        <td><%= caregiver.name %></td>
+        <td><%= caregiver.phone %></td>
+        <td><%= caregiver.email %></td>
+        <td><%= link_to 'Show', caregiver %></td>
+        <td><%= link_to 'Edit', edit_caregiver_path(caregiver) %></td>
+        <td><%= link_to 'Destroy', caregiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Caregiver', new_caregiver_path %>

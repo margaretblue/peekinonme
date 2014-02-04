@@ -1,0 +1,20 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  phone: MyString
+  street: MyString
+  city: MyString
+  zip: MyString
+  condition: MyText
+  checkintime: 2014-02-03 15:37:11
+
+two:
+  name: MyString
+  phone: MyString
+  street: MyString
+  city: MyString
+  zip: MyString
+  condition: MyText
+  checkintime: 2014-02-03 15:37:11

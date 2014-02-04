@@ -1,0 +1,3 @@
+class Caregiver < User
+
+end
