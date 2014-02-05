@@ -2,18 +2,18 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
   before_action :, only: [:show]
   before_filter :authenticate_user!
-  before_filter :get_caregiver
+  before_filter :get_user, only: [:new, :index, :create]
 
   # GET /patients
   # GET /patients.json
   def index
-    @patients = @caregiver.patients
+    @patients = @user.patients
   end
 
   # GET /patients/1
   # GET /patients/1.json
   def show
-    @patient = @caregiver.patients.find(params[:id])
+    #S@patient = Patients.find(params[:id])
   end
 
   # GET /patients/new
@@ -28,13 +28,13 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = @caregiver.patients.new(patient_params)
-    @patient.caregiver_id = current_user.id
+    @patient = @user.patients.new(patient_params)
+    @patient.user_id = current_user.id
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to [@caregiver,@patient], notice: 'Patient was successfully created.' }
-        format.json { render json: [@caregiver, @patient], status: :created, location: [@caregiver, @patient] }
+        format.html { redirect_to [@user,@patients], notice: 'Patient was successfully created.' }
+        format.json { render json: [@user,@patient], status: :created, location: [@user,@patient] }
       else
         format.html { render action: 'new' }
         format.json { render json: @patient.errors, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class PatientsController < ApplicationController
   def update
     respond_to do |format|
       if @patient.update(patient_params)
-        format.html { redirect_to [@caregiver, @patient], notice: 'Patient was successfully updated.' }
+        format.html { redirect_to [@user, @patient], notice: 'Patient was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -61,7 +61,7 @@ class PatientsController < ApplicationController
   def destroy
     @patient.destroy
     respond_to do |format|
-      format.html { redirect_to user_patients_url }
+      format.html { redirect_to user_patients_url(current_user) }
       format.json { head :no_content }
     end
   end
@@ -74,11 +74,11 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :email, :street, :city, :zip, :phone, :condition, :checkintime, :caregiver_id)
+      params.require(:patient).permit(:name, :email, :street, :city, :zip, :phone, :condition, :checkintime, :user_id)
     end
 
-    def get_caregiver
-      @caregiver = User.find(params[:user_id])
+    def get_user
+      @user = User.find(params[:user_id])
     end
 
     def restrict_access
