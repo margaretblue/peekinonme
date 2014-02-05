@@ -1,19 +1,8 @@
 patient:
-  name: Jimbob
   email: patient@patient.com
-  password: password
-  phone: 111-111-1111
-  street: 123 street st.
+  street: 123 fake st
   city: Seattle
   zip: 98055
-  condition: diabetus
-
-patient2:
-  name: Joebob
-  email: patient2@patient.com
-  password: password
-  phone: 222-222-2222
-  street: 123 Avenue Ave.
-  city: Bellevue
-  zip: 98057
-  condition: even more diabetus
+  phone: 123-456-7890
+  condition: all the conditions
+  checkintime: 12:00:00

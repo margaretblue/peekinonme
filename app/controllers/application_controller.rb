@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) << [:caregiver_email, :caregiver_name, :caregiver_phone]
     end
+
+    def after_sign_in_path_for(user)
+      user_path(current_user)
+    end
 end

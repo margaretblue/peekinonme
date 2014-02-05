@@ -76,6 +76,6 @@ class PatientsController < ApplicationController
     end
 
     def get_caregiver
-      @caregiver = User.find(params[:id])
+      @caregiver = User.find(params[:user_id])
     end
 end
