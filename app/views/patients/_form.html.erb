@@ -1,4 +1,4 @@
-<%= form_for @patient, url: {action: "create"} do |f| %>
+<%= form_for shallow_args(@user,@patient) do |f| %>
 <div class="input-group">
   <% if @patient.errors.any? %>
     <div id="error_explanation">
