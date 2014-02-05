@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-  before_action :, only: [:show]
+  # before_action :, only: [:show]
   before_filter :authenticate_user!
   before_filter :get_user, only: [:new, :index, :create]
 
