@@ -1,3 +1,4 @@
+<div class="input-group">
 <%= form_for(@patient) do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
@@ -47,3 +48,4 @@
     <%= f.submit class: 'btn btn-primary btn-wide' %>
   </div>
 <% end %>
+</div>
