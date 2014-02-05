@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :, only: [:show]
   before_filter :authenticate_user!
   before_filter :get_caregiver
 
@@ -78,5 +79,10 @@ class PatientsController < ApplicationController
 
     def get_caregiver
       @caregiver = User.find(params[:user_id])
+    end
+
+    def restrict_access
+      key = Patient.find_by_token(params[:token])
+      head :unauthorized unless key
     end
 end
