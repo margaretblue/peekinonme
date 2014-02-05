@@ -1,4 +1,7 @@
 Peekinonme::Application.routes.draw do
-  devise_for :users
-   root 'welcome#index'
+  root 'welcome#index'
+
+  devise_for :users do
+    resources :patients
+  end
 end

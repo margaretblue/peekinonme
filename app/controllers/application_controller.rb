@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << [:patient_email, :caregiver_email, :patient_name, :patient_street, :patient_city, :patient_zip, :patient_condition, :patient_phone, :caregiver_name, :caregiver_phone, :patient_phone]
+      devise_parameter_sanitizer.for(:sign_up) << [:caregiver_email, :caregiver_name, :caregiver_phone]
     end
 end
