@@ -39,8 +39,7 @@ feature "caregiver homepage/dashboard page" do
     fill_in "Condition", with: patients(:patient).condition
     # fill_in "Checkintime", with: patients(:patient).checkintime
     click_on "Create Patient"
-    save_and_open_page
-    page.text.must_include "Patient Created"
+    page.text.must_include "Patient was successfully created"
   end
 end
 
