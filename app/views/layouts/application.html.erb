@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Peekinonme</title>
+  <title>Check In On Me</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <%= render 'shared/top_nav' %>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+  <% if flash[:notice] %>
+   <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if flash[:alert] %>
+ <p class="alert-info"><%= alert %></p>
+  <% end %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 <%= yield %>
+  </div>
+</div>
+
 
 </body>
 </html>

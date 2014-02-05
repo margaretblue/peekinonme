@@ -1,4 +1,5 @@
 <%= form_for @patient, url: {action: "create"} do |f| %>
+<div class="input-group">
   <% if @patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
@@ -44,6 +45,7 @@
     <%= f.time_select :checkintime %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary btn-wide' %>
   </div>
 <% end %>
+</div>
