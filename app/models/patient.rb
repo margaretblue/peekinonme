@@ -1,5 +1,6 @@
 class Patient < ActiveRecord::Base
   belongs_to :user
+  has_many :checkins
 
   before_create :generate_token
 
