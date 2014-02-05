@@ -28,6 +28,7 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = @caregiver.patients.new(patient_params)
+    @patient.caregiver_id = current_user.id
 
     respond_to do |format|
       if @patient.save
@@ -72,7 +73,7 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :email, :street, :city, :zip, :phone, :condition, :checkintime)
+      params.require(:patient).permit(:name, :email, :street, :city, :zip, :phone, :condition, :checkintime, :caregiver_id)
     end
 
     def get_caregiver
