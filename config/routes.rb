@@ -1,4 +1,6 @@
 Peekinonme::Application.routes.draw do
+  resources :checkins
+
   root 'welcome#index'
 
   devise_for :users, :controllers => { :registrations => 'registrations'}, :path => 'account'
