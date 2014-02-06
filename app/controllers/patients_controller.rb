@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-  before_filter :get_user, except: [:show]
-  before_filter :authenticate_user!
+  before_action :get_user, except: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
 
   # GET /patients
