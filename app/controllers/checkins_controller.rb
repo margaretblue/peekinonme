@@ -27,7 +27,7 @@ class CheckinsController < ApplicationController
   # POST /checkins.json
   def create
     @checkin = @patient.checkins.new(checkin_params)
-    #@checkin.patient_id = current_user.id
+    @checkin.patient_id = current_user.id
     respond_to do |format|
       if @checkin.save
         format.html { redirect_to [@patients, @checkin], notice: 'Checkin was successfully created.' }
