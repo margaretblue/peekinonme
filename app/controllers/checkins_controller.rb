@@ -1,10 +1,12 @@
 class CheckinsController < ApplicationController
   before_action :set_checkin, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  before_filter :get_patient, only: [:new, :index, :create]
 
   # GET /checkins
   # GET /checkins.json
   def index
-    @checkins = Checkin.all
+    @checkins = @patient.checkins
   end
 
   # GET /checkins/1
@@ -24,12 +26,12 @@ class CheckinsController < ApplicationController
   # POST /checkins
   # POST /checkins.json
   def create
-    @checkin = Checkin.new(checkin_params)
-
+    @checkin = @patient.checkins.new(checkin_params)
+    @checkin.patient_id = current_user.id
     respond_to do |format|
       if @checkin.save
-        format.html { redirect_to @checkin, notice: 'Checkin was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @checkin }
+        format.html { redirect_to [@patients, @checkin], notice: 'Checkin was successfully created.' }
+        format.json { render json: [@patients, @checkin], status: :created, location: [@patients, @checkin] }
       else
         format.html { render action: 'new' }
         format.json { render json: @checkin.errors, status: :unprocessable_entity }
@@ -42,7 +44,7 @@ class CheckinsController < ApplicationController
   def update
     respond_to do |format|
       if @checkin.update(checkin_params)
-        format.html { redirect_to @checkin, notice: 'Checkin was successfully updated.' }
+        format.html { redirect_to [@patient, @checkin], notice: 'Checkin was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +58,7 @@ class CheckinsController < ApplicationController
   def destroy
     @checkin.destroy
     respond_to do |format|
-      format.html { redirect_to checkins_url }
+      format.html { redirect_to patient_checkins_url(current_user) }
       format.json { head :no_content }
     end
   end
@@ -72,5 +74,7 @@ class CheckinsController < ApplicationController
       params.require(:checkin).permit(:patient_id, :message)
     end
 
-
+    def get_patient
+      @patient = Patient.find(params[:patient_id])
+    end
 end

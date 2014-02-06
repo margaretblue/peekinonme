@@ -13,7 +13,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-    #S@patient = Patients.find(params[:id])
+
   end
 
   # GET /patients/new
