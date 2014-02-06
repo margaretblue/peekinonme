@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email
 
-    client.deliver(to: @user.email
+    client.deliver(to: @user.email,
                    subject: 'subject')
     # mail(
     #   :subject => 'Welcome to Check In On Me'
