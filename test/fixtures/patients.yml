@@ -6,3 +6,12 @@ patient:
   phone: 123-456-7890
   condition: all the conditions
   checkintime: 12:00:00
+
+patient2:
+  email: patient2@patient.com
+  street: 123 fake st
+  city: Seattle
+  zip: 98055
+  phone: 123-456-7890
+  condition: all the conditions
+  checkintime: 12:00:00

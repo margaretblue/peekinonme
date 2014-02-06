@@ -22,4 +22,13 @@ class ActiveSupport::TestCase
     fill_in "Password", with: "password"
     click_button "Sign in"
   end
+
+  def sign_in_patient_index
+    visit "/"
+    click_on "Sign In"
+    fill_in "Email", with: users(:caregiver).email
+    fill_in "Password", with: "password"
+    click_button "Sign in"
+    click_on "See Patients"
+  end
 end

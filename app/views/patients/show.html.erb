@@ -48,7 +48,7 @@
   </tr>
       <% end %>
 </table>
-  <% end %>
+<% end %>
 
-<%# link_to 'Check-Ins', patient_checkins_path(@patient) %>
-
+Check-In Link:
+<%= link_to new_patient_checkin_path(@patient).to_s, new_patient_checkin_path(@patient)%>

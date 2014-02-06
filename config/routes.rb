@@ -6,8 +6,8 @@ Peekinonme::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => 'registrations'}, :path => 'account'
   resources :users, :only => [:show], shallow: true do
     resources :patients, shallow: true do
-      resources :checkins
+      resources :checkins do
+      end
     end
   end
-
 end
