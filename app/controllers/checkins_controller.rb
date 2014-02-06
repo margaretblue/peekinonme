@@ -1,14 +1,14 @@
 class CheckinsController < ApplicationController
   before_action :set_checkin, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:checkin]
+  # before_filter :authenticate_user!, except: [:checkin]
   before_filter :get_patient, only: [:new, :index, :create]
 
   # GET /checkins
   # GET /checkins.json
 
-  def checkin
-    @checkin = Checkin.find_by token: params[:token]
-  end
+  # def checkin
+  #   @checkin = Checkin.find_by token: params[:token]
+  # end
 
   def index
     @checkins = @patient.checkins
@@ -32,7 +32,7 @@ class CheckinsController < ApplicationController
   # POST /checkins.json
   def create
     @checkin = @patient.checkins.new(checkin_params)
-    @checkin.patient_id = current_user.id
+    @checkin.patient_id = current_user.token
     respond_to do |format|
       if @checkin.save
         format.html { redirect_to [@patients, @checkin], notice: 'Checkin was successfully created.' }
@@ -69,10 +69,10 @@ class CheckinsController < ApplicationController
   end
 
   private
-    def restrict_access
-      key = (@Patient.key).find_by_token
-      head :unauthorized unless key
-    end
+    # def restrict_access
+    #   key = (@Patient.key).find_by_token
+    #   head :unauthorized unless key
+    # end
     # Use callbacks to share common setup or constraints between actions.
     def set_checkin
       @checkin = Checkin.find(params[:id])
@@ -84,6 +84,6 @@ class CheckinsController < ApplicationController
     end
 
     def get_patient
-      @patient = Patient.find(params[:patient_id])
+      @patient = Patient.where(token: params[:patient_id]).first
     end
 end

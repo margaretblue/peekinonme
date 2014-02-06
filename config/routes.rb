@@ -8,7 +8,6 @@ Peekinonme::Application.routes.draw do
   resources :users, shallow: true do
     resources :patients, shallow: true do
       resources :checkins do
-        get 'checkin'
       end
     end
   end

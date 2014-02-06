@@ -11,12 +11,8 @@
         </ul>
       </div>
     <% end %>
-  Good to see you today, <%= @patient.name%>
+  Good to see you today, <%= @patient.name %>
 
-    <div class="form-group field">
-      <%= f.label :patient_id %><br>
-      <%= f.number_field :patient_id, :class => 'form-control input-hg' %>
-    </div>
     <div class="form-group field">
       <%= f.label "Leave a Message if you wish" %><br>
       <%= f.text_area :message, :class => 'form-control input-hg' %>

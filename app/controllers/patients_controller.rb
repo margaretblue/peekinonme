@@ -1,6 +1,5 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-  # before_action :, only: [:show]
   before_filter :authenticate_user!
   before_filter :get_user, only: [:new, :index, :create]
 
@@ -71,12 +70,16 @@ class PatientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_patient
-      @patient = Patient.find(params[:id])
+      @patient = Patient.where(token: params_id).first
+    end
+
+    def params_id
+      params[:patient_id] || params[:id]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:name, :email, :street, :city, :zip, :phone, :condition, :checkintime, :user_id)
+      params.require(:patient).permit(:name, :email, :street, :city, :zip, :phone, :condition, :checkintime, :user_id, :token)
     end
 
     def get_user
