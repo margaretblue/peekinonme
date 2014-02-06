@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "hireme@kaylaarianamorrison.com"
 
-  def welcome_email(user)
+  def welcome_email
     mail(
       :subject => 'Welcome to Check In On Me'
       :to => @user.email
@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
     # mail(to: @user.email, subject: 'Welcome to Check In On Me')
   end
 
-  def welcome_patient(patient)
+  def welcome_patient
     mail(
       :subject => 'Welcome to Your Check In On Me'
       :to => @patient.email
