@@ -2,7 +2,7 @@
 
 <p>
   <strong>Patient:</strong>
-  <%= @checkin.patient %>
+  <%= @checkin.patient.name %>
 </p>
 
 <p>
@@ -10,6 +10,6 @@
   <%= @checkin.message %>
 </p>
 
-<%= link_to 'Edit', edit_checkin_path(@checkin) %> |
+<%# link_to 'Back', patient_checkins_path(@patient) %>
 
 
