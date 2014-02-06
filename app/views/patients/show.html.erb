@@ -25,9 +25,9 @@
 
   <div class="col-md-5 col-md-offset-2"><h6>Message</h6></div>
   Last Check-In:
-  <% @checkins = @checkins.order('created_at DESC') %>
-  <% time_diff = Time.now.to_i - @patient.updated_at.to_i %>
-  <%= distance_of_time_in_words(time_diff) %> ago
+  "% @checkins = @checkins.order('created_at DESC') %"
+  "% time_diff = Time.now.to_i - @patient.updated_at.to_i %"
+  "%= distance_of_time_in_words(time_diff) %"" ago
 </div>
 
 <table class="table table-striped table-hover">
@@ -38,8 +38,8 @@
   <tr>
     KAYLA-CRAIG CHANGE the "% %" to be erb tags
       "% @checkins.each do |checkin|  %"
-    <td>KAYLA-CRAIG </td>
-    <td></td>
+    <td>CHANGE <%=Time.now.strftime("%A %m/%d/%Y at %I:%M%p") %> </td>
+    <td>CHANGE "%= checkin.message%"</td>
   </tr>
 </table>
 
