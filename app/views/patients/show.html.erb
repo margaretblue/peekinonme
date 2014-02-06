@@ -21,10 +21,18 @@
 </div>
 
 <div class="row">
-  Last Check-In:
-  <% @checkins = @patient.checkins.order('created_at DESC') %>
-  <% time_diff = Time.now.to_i - @patient.updated_at.to_i %>
-  <%= distance_of_time_in_words(time_diff) %> ago
+  <div class="col-xs-6 col-md-4">
+  </div>
+
+  <div class="col-xs-6 col-md-4">
+      Last Check-In:
+    <% @checkins = @patient.checkins.order('created_at DESC') %>
+    <% time_diff = Time.now.to_i - @patient.checkins.last.created_at.to_i %>
+    <%= distance_of_time_in_words(time_diff) %> ago
+  </div>
+
+  <div class="col-xs-6 col-md-4">
+  </div>
 </div>
 
 <table class="table table-striped table-hover">

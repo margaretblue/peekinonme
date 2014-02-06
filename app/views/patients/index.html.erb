@@ -1,38 +1,14 @@
-<h1>Listing patients</h1>
+<h1>My Patients</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>Zip</th>
-      <th>Phone</th>
-      <th>Condition</th>
-      <th>Checkintime</th>
-      <th>Link to CheckIn Index</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
+<table class="table table-striped table-hover">
   <tbody>
     <% @patients.each do |patient| %>
       <tr>
-        <td><%= patient.name %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.street %></td>
-        <td><%= patient.city %></td>
-        <td><%= patient.zip %></td>
+        <td><h5><%= link_to "#{patient.name}", patient %></h5></td>
         <td><%= patient.phone %></td>
-        <td><%= patient.condition %></td>
-        <td><%= patient.checkintime %></td>
-        <td><%= link_to 'Check-Ins', patient_checkins_path(patient)  %></td>
         <td><%= link_to 'Show', patient %></td>
         <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
