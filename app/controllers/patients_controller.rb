@@ -1,8 +1,8 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-  # before_action :, only: [:show]
+  before_filter :get_user, except: [:show]
   before_filter :authenticate_user!
-  before_filter :get_user, only: [:new, :index, :create]
+
 
   # GET /patients
   # GET /patients.json
@@ -13,7 +13,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-
+    #@patient = @user.patients.find(params[:id])
   end
 
   # GET /patients/new

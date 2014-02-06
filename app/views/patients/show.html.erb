@@ -24,6 +24,7 @@
   <div class="col-xs-6 col-md-4">
   </div>
 
+  <% if !@patient.checkins.empty? %>
   <div class="col-xs-6 col-md-4">
       Last Check-In:
     <% @checkins = @patient.checkins.order('created_at DESC') %>
@@ -42,12 +43,12 @@
   </tr>
       <% @checkins.each do |checkin|  %>
   <tr>
-      <td><%=checkin.created_at.strftime("%A %m/%d/%Y at %I:%M%p") %> </td>
+      <td><%=checkin.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%A %m/%d/%Y at %I:%M%p") %> </td>
       <td><%= checkin.message%></td>
   </tr>
       <% end %>
 </table>
+  <% end %>
 
-
-<%= link_to 'Check-Ins', patient_checkins_path(@patient) %>
+<%# link_to 'Check-Ins', patient_checkins_path(@patient) %>
 
