@@ -2,7 +2,6 @@ class CheckinsController < ApplicationController
   before_action :set_checkin, only: [:show, :edit, :update, :destroy]
   # before_filter :authenticate_user!, except: [:checkin]
   before_action :get_patient, except: [:show, :edit, :destroy]
-  before_action :authenticate_user!
 
   # GET /checkins
   # GET /checkins.json

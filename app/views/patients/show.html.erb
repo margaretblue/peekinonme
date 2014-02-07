@@ -36,7 +36,7 @@
   </div>
 </div>
 
-<table class="table table-striped table-hover">g
+<table class="table table-striped table-hover">
   <tr>
     <th><h6>Check-In Time : <%= @patient.checkintime.strftime("%I:%M%p") %></h6></th>
     <th><h6>Message</h6></th>
@@ -50,5 +50,5 @@
 </table>
 <% end %>
 
-Check-In Link:
-<%= link_to new_patient_checkin_path(@patient).to_s, new_patient_checkin_path(@patient)%>
+<!-- Check-In Link:
+<%= #link_to new_patient_checkin_path(@patient).to_s, new_patient_checkin_path(@patient)%> -->
