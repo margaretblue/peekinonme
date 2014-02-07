@@ -34,6 +34,7 @@ class CheckinsController < ApplicationController
   def create
     @checkin = @patient.checkins.new(checkin_params)
     @checkin.patient_id = current_user.id
+    @patient.checkins << @checkin
 
     respond_to do |format|
       if @checkin.save
