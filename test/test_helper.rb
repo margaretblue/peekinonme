@@ -14,21 +14,32 @@ require "minitest/rails/capybara"
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
+end
 
-  def sign_in
-    visit "/"
-    click_on "Sign In"
-    fill_in "Email", with: users(:caregiver).email
-    fill_in "Password", with: "password"
-    click_button "Sign in"
-  end
+class FeatureTest < MiniTest::Spec
+    include Rails.application.routes.url_helpers
+    include Capybara::DSL
+    register_spec_type(/feature$/, self)
+end
 
-  def sign_in_patient_index
-    visit "/"
-    click_on "Sign In"
-    fill_in "Email", with: users(:caregiver).email
-    fill_in "Password", with: "password"
-    click_button "Sign in"
-    click_on "See Patients"
-  end
+def sign_in
+  visit "/"
+  click_on "Sign In"
+  fill_in "Email", with: users(:caregiver).email
+  fill_in "Password", with: "password"
+  click_button "Sign in"
+end
+
+def sign_in_patient_index
+  visit "/"
+  click_on "Sign In"
+  fill_in "Email", with: users(:caregiver).email
+  fill_in "Password", with: "password"
+  click_button "Sign in"
+  click_on "See Patients"
+end
+
+Turn.config do |c|
+  c.format = :outline
+  c.trace = '2'
 end
