@@ -36,7 +36,7 @@ def sign_in_patient_index
   fill_in "Email", with: users(:caregiver).email
   fill_in "Password", with: "password"
   click_button "Sign in"
-  click_on "See Patients"
+  click_link 'See Patient List'
 end
 
 Turn.config do |c|

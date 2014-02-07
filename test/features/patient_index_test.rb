@@ -4,6 +4,7 @@ feature "Patient index page" do
   scenario "caregiver can create new patient from index page" do
     sign_in_patient_index
     click_on "New Patient"
+
     fill_in "Name", with: patients(:patient).name
     fill_in "Email", with: patients(:patient).email
     fill_in "Street", with: patients(:patient).street
@@ -11,7 +12,9 @@ feature "Patient index page" do
     fill_in "Zip", with: patients(:patient).zip
     fill_in "Phone", with: patients(:patient).phone
     fill_in "Condition", with: patients(:patient).condition
-    click_on "Create Patient"
+
+    click_button "Create Patient"
+
     page.text.must_include "Patient was successfully created."
   end
 

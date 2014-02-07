@@ -19,10 +19,9 @@ feature "caregiver homepage/dashboard page" do
   scenario "caregiver can edit their page" do
     sign_in
     click_on "Edit"
-    fill_in "Email", with: users(:caregiver2).email
+    fill_in "Email", with: users(:caregiver).email
     fill_in "Current password", with: "password"
     click_button "Update"
-    save_and_open_page
     page.text.must_include "You updated your account successfully"
   end
 
