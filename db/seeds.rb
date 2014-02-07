@@ -1,17 +1,13 @@
 require 'faker'
 
-# 20.times do
-#   User.new.tap do |u|
-#     u.email = Faker::Internet.email
-#     u.caregiver_name = Faker::Name.name
-#     u.caregiver_phone = Faker::PhoneNumber.phone_number
-#   end
-# end
-
 kayla = User.new
+kayla.email = 'kaylas.email.address@gmail.com'
+kayla.password = 'password'
+kayla.password_confirmation = 'password'
+kayla.save
 
 20.times do
-  kayla.Patient.new.tap do |p|
+  Patient.new.tap do |p|
     p.name = Faker::Name.name
     p.email = Faker::Internet.email
     p.street = Faker::Address.street_address
@@ -19,9 +15,14 @@ kayla = User.new
     p.zip = Faker::Address.zip_code
     p.phone = Faker::PhoneNumber.phone_number
     p.condition = Faker::Company.bs
+    p.checkintime = Time.new(2000)
+    kayla.patients << p
     p.save!
   end
 end
 
-
-
+kayla.patients.each do |p|
+  5.times do
+    p.checkins << Checkin.new(message: Faker::Lorem.sentence)
+  end
+end
