@@ -1,6 +1,8 @@
 require 'faker'
 
 kayla = User.new
+kayla.caregiver_name = "Kayla Morrison"
+kayla.caregiver_phone = "541-408-0887"
 kayla.email = 'kaylas.email.address@gmail.com'
 kayla.password = 'password'
 kayla.password_confirmation = 'password'
