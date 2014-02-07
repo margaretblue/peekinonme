@@ -33,7 +33,7 @@ class CheckinsController < ApplicationController
   # POST /checkins.json
   def create
     @checkin = @patient.checkins.new(checkin_params)
-    @checkin.patient_id = @patient.id
+    # @checkin.patient_id = @patient.id
     @patient.checkins << @checkin
 
     respond_to do |format|
