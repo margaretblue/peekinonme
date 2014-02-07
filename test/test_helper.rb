@@ -1,9 +1,9 @@
-ENV["RAILS_ENV"] = "test"
+ruby ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rails/test_help"
 require "minitest/rails"
 require "minitest/rails/capybara"
-
+begin; require 'turn/autorun'; rescue LoadError; end
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`
 # to the test group in the Gemfile and uncomment the following:
 # require "minitest/rails/capybara"
